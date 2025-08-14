@@ -65,4 +65,11 @@ export const login = async  (req, res) =>{
 
 export const logout = async  (req, res) =>{
     res.send("I am at the logout page");
+    try {
+        const refreshToken = req.cookies.refreshToken;
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+        await redis.del(`refresh_token:${decoded.userId}`)
+    } catch (error) {
+        
+    }
 }
