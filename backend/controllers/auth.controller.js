@@ -134,4 +134,7 @@ export const refreshToken = async (req, res) => {
         
     }
 }
-
+// TODO: THIS WILL BE IMPLEMENT LATER
+export const getProfile = async (req, res) => {
+    
+}
